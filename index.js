@@ -1,23 +1,7 @@
-var cheerio = require('cheerio')
+var cheerio = require('cheerio')// https://github.com/cheeriojs/cheerio
 	, http = require("http")
 	, fs = require('fs');
 
-// https://github.com/cheeriojs/cheerio
-
-var fileToSave = __dirname+'/events_in_history.csv';
-
-console.log(fileToSave)
-
-
-function writeEventsToFile(_events) {
-	fs.writeFile(fileToSave, _events.join('\n'), function(err) {
-	    if(err) {
-	        console.log(err);
-	    } else {
-	        console.log("The file was saved! ", _events.length);
-	    }
-	}); 
-};
 
 function parseDocument (stringHTML) {
 	var $ = cheerio.load(stringHTML);
@@ -89,12 +73,12 @@ function getMeta($) {
 		, description;
 
 	keys.forEach(function(key){
-	if (  meta[key].attribs
-	   && meta[key].attribs.property
-	   && (meta[key].attribs.property === 'og:description'
-	   || meta[key].attribs.property === 'description') ){
-	  		description = meta[key].attribs.content;
-		}
+		if ( meta[key].attribs
+		   && meta[key].attribs.property
+		   && (meta[key].attribs.property === 'og:description'
+		   || meta[key].attribs.property === 'description') ){
+		  		description = meta[key].attribs.content;
+			}
 	});
 
 	return description;
@@ -102,7 +86,7 @@ function getMeta($) {
 
 function processPage(page, callback) {
 	//remove protocol
-	page = page.replace(/https?:\/\//,'')
+	page = page.replace(/^https?:\/\//,'')
 
 	getPage(page, function(stringHTML) {
 		

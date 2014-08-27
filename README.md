@@ -1,17 +1,12 @@
-this-day
+node-meta-parser
 =============
-This nodejs project will query wikipedia's pages and scrape information for what happened on this day in history and then export the data to a csv (for easy importing to a database);
+This module will export the image and description of a given url via the meta tags.  The data prefers og: (Open Graph Protocol http://ogp.me/) tags, but will default to meta description or meta image_src if og tags are not found.
 
-Setup
+NOTE: This has not been published to npm. 
+
+
+Installation
 -------------------
-Ensure node and npm are installed then:
-	npm install
-	node process.js
+npm install	git@github.com:brog/node-parse-meta.git
 
 
-
-Importing to Postgress
--------------------
-To import to postgres use the following command from the psql prompt
-
-COPY events(year,month_day,type,html) FROM '{{path}}/this-day/events_in_history.csv' DELIMITER ',' CSV;

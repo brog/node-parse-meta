@@ -1,6 +1,6 @@
 {
   "name": "html-meta-parser",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "scrapes meta data of image and description from a website",
   "main": "index.js",
   "scripts": {

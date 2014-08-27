@@ -1,0 +1,26 @@
+{
+  "name": "html-meta-parser",
+  "version": "0.0.0",
+  "description": "scrapes meta data from a website",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:brog/node-parse-meta.git"
+  },
+  "keywords": [
+    "history",
+    "this-day",
+    "wikipedia"
+  ],
+  "author": "brog",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "cheerio": "~0.17.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.21.4"
+  }
+}

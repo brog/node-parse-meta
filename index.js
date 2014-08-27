@@ -66,7 +66,7 @@ function getImage($) {
 	return $('link[rel=image_src]').attr('href');
 };
 
-function getMeta($) {
+function getMetaDescription($) {
 
 	var meta = $('meta')
 		, keys = Object.keys(meta)
@@ -92,7 +92,7 @@ function processPage(page, callback) {
 		
 		var $ = parseDocument(stringHTML);
 
-		callback(getMeta($), getImage($));
+		callback(getMetaDescription($), getImage($));
 		
 	});
 };

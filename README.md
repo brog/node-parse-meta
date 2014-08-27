@@ -10,3 +10,13 @@ Installation
 npm install	git@github.com:brog/node-parse-meta.git
 
 
+Useage
+-------------------
+```js
+var metaParse = require('node-meta-parser')
+	, url = 'http://www.stupidventures.com';
+
+metaParse.processPage(url, function(description, image){
+	console.log(description, image);
+})
+```

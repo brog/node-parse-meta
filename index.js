@@ -15,13 +15,14 @@ function getPage (url, callback) {
 		, 
 		options = {
 		    host: urlParts[0],
-		    path: (urlParts.length > 1) ? urlParts.slice(1).join('/') : '/'
+		    path: (urlParts.length > 1) ? urlParts.slice(1).join('/') : '/',
+		    headers: {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36'}
 		}
 		, data = '';
 
-		if(options.path===''){
-			options.path = '/'
-		}
+	if(options.path===''){
+		options.path = '/'
+	}
 
 	http.get(options, function (http_res) {
 

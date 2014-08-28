@@ -1,6 +1,6 @@
 {
   "name": "node-parse-meta",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "scrapes meta data of image and description from a website",
   "main": "index.js",
   "scripts": {

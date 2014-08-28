@@ -23,7 +23,7 @@ function getPage (url, callback) {
 	if(options.path===''){
 		options.path = '/'
 	}
-
+	
 	http.get(options, function (http_res) {
 
 	    // this event fires many times, each time collecting another piece of the response
@@ -94,7 +94,7 @@ function getMetaDescription($) {
 
 function processPage(page, callback) {
 	//remove protocol
-	page = page.replace(/^https?:\/\//,'')
+	page = page.replace(/^https?:\/\//,'');
 
 	getPage(page, function(stringHTML) {
 		

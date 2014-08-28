@@ -15,9 +15,13 @@ function getPage (url, callback) {
 		, 
 		options = {
 		    host: urlParts[0],
-		    path: urlParts.length>1 ? urlParts.slice(1).join('/') : '/'
+		    path: (urlParts.length > 1) ? urlParts.slice(1).join('/') : '/'
 		}
 		, data = '';
+
+		if(options.path===''){
+			options.path = '/'
+		}
 
 	http.get(options, function (http_res) {
 
@@ -51,6 +55,7 @@ function getImage($) {
 
 	if(null == imageUrl){
 		keys.forEach(function(key){
+
 			if (  meta[key].attribs
 			   && meta[key].attribs.property
 			   && meta[key].attribs.property === 'og:image' ){
@@ -73,12 +78,14 @@ function getMetaDescription($) {
 		, description;
 
 	keys.forEach(function(key){
-		if ( meta[key].attribs
-		   && meta[key].attribs.property
-		   && (meta[key].attribs.property === 'og:description'
-		   || meta[key].attribs.property === 'description') ){
-		  		description = meta[key].attribs.content;
-			}
+		if ( meta[key].attribs &&
+			(
+				(meta[key].attribs.property && meta[key].attribs.property === 'og:description') ||
+				(meta[key].attribs.name && meta[key].attribs.name === 'description') 
+			) 
+		){
+		  	description = meta[key].attribs.content;
+		}
 	});
 
 	return description;
